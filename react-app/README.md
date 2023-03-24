@@ -6,8 +6,8 @@ This is the React implementation of the To Do List
 
 ## MVP
 
-- [ ] Add an individual task;
-- [ ] Search bar to filter the task with the current input;
+- [x] Add an individual task;
+- [x] Search bar to filter the task with the current input;
 - [ ] Filters (complete, incomplete);
 - [ ] Save/load state to/from localstorage;
 - [ ] Individually remove/complete/edit a task;
