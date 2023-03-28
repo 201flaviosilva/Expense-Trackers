@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { GiNuclearBomb } from "react-icons/gi";
+import { GoAlert } from "react-icons/go";
+import ConfirmationDialog from "../ConfirmationDialog";
 import Input from "../Input";
 import Task from "../Task";
 import styles from "./style.module.scss";
 
 export default function Main({ filteredTasks, tasks, setTasks }) {
 	const [newTask, setNewTask] = useState("");
+	const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
 	function onSubmit(e) {
 		e.preventDefault();
@@ -55,12 +58,31 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 
 				</ul>
 
-				{filteredTasks.length > 0 &&
-					<button onClick={() => setTasks([])}>
+				{
+					filteredTasks.length > 0 &&
+					<button
+						className={styles.clearBTN}
+						onClick={() => {
+							// setTasks([]);
+							setIsConfirmOpen(true);
+						}}>
 						<GiNuclearBomb size={24} />
 					</button>
 				}
 			</div>
+
+			{
+				isConfirmOpen && <ConfirmationDialog
+					title="Delete All Tasks"
+					message={`Are you sure you want to remove all ${tasks.length} task?`}
+					Icon={GoAlert}
+					onConfirm={() => {
+						setTasks([]);
+						setIsConfirmOpen(false);
+					}}
+					onCancel={() => setIsConfirmOpen(false)}
+				/>
+			}
 		</main>
 	)
 }

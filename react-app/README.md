@@ -14,7 +14,7 @@ This is the React implementation of the To Do List
   - [X] Remove
   - [X] Mark as complete
   - [x] Edit;
-- [ ] Clear all tasks (with a confirmation modal);
+- [x] Clear all tasks (with a confirmation modal);
 
 ## Make it run
 

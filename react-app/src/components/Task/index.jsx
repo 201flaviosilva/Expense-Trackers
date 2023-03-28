@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
 import { GoAlert, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
-import { ICON_SIZE } from "../../CONSTANTS";
 import styles from "./style.module.scss";
+
+const ICON_SIZE = 16;
 
 export default function Task({ id, value, isCompleted, editTask, toggleCompletedTask, removeTask }) {
 	const [isHouver, setIsHouver] = useState(false);
@@ -18,10 +19,10 @@ export default function Task({ id, value, isCompleted, editTask, toggleCompleted
 	return (
 		<li
 			className={`${styles.task}`}
-			title={`Completed: ${isCompleted}\n`}
+			title={`Completed: ${isCompleted}`}
 		>
 			{/* Show/Edit title */}
-			{!isEditing && <span className={isCompleted && styles.completed}>{value}</span>}
+			{!isEditing && <span className={isCompleted ? styles.completed : ""}>{value}</span>}
 			{isEditing && <input
 				placeholder={value}
 				value={newTitle}

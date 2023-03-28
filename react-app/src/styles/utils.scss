@@ -1,0 +1,8 @@
+// Variables
+$DANGER: #dc3545;
+
+// Mixins
+@mixin glow($baseColor) {
+  box-shadow: 0 0 2px $baseColor, 0 0 4px $baseColor, 0 0 8px $baseColor,
+    0 0 8px $baseColor inset;
+}
