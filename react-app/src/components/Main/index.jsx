@@ -12,7 +12,7 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 
 	function onSubmit(e) {
 		e.preventDefault();
-		setTasks(prev => [...prev, { id: Math.random(), value: newTask }]);
+		setTasks(prev => [...prev, { id: Math.random(), value: newTask, isCompleted: false, }]);
 		setNewTask("");
 	}
 

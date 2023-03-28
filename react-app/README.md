@@ -9,7 +9,7 @@ This is the React implementation of the To Do List
 - [x] Add an individual task;
 - [x] Search bar to filter the task with the current input;
 - [ ] Filters (complete, incomplete);
-- [ ] Save/load state to/from localstorage;
+- [x] Save/load state to/from localstorage;
 - [x] Individually:
   - [X] Remove
   - [X] Mark as complete
