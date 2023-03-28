@@ -16,10 +16,6 @@ This is the React implementation of the To Do List
   - [x] Edit;
 - [ ] Clear all tasks (with a confirmation modal);
 
-
-### Nice to Have Added
-- Archived tasks;
-
 ## Make it run
 
 ### Clone and change directory

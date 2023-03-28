@@ -20,13 +20,6 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 		}));
 	}
 
-	function toggleArchivedTask(id) {
-		setTasks(tasks.map(t => {
-			if (t.id === id) return { ...t, isArchived: !t.isArchived };
-			return t;
-		}));
-	}
-
 	function toggleCompletedTask(id) {
 		setTasks(tasks.map(t => {
 			if (t.id === id) return { ...t, isCompleted: !t.isCompleted };
@@ -57,7 +50,6 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 						{...t}
 						editTask={editTask}
 						toggleCompletedTask={toggleCompletedTask}
-						toggleArchivedTask={toggleArchivedTask}
 						removeTask={removeTask}
 					/>)}
 

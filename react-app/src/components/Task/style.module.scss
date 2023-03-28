@@ -9,11 +9,6 @@
   border-radius: 4px;
   transition: 0.5s;
 
-  &.archived {
-    opacity: 0.5;
-    border: 2px solid black;
-  }
-
   &:nth-child(even) {
     background-color: #f2f2f2;
   }

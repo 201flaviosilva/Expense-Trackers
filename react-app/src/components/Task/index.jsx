@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
-import { GoAlert, GoArchive, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
+import { GoAlert, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
 import { ICON_SIZE } from "../../CONSTANTS";
 import styles from "./style.module.scss";
 
-export default function Task({ id, value, isCompleted, isArchived, editTask, toggleCompletedTask, toggleArchivedTask, removeTask }) {
+export default function Task({ id, value, isCompleted, editTask, toggleCompletedTask, removeTask }) {
 	const [isHouver, setIsHouver] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState("");
@@ -17,8 +17,8 @@ export default function Task({ id, value, isCompleted, isArchived, editTask, tog
 
 	return (
 		<li
-			className={`${styles.task} ${isArchived && styles.archived}`}
-			title={`Archived: ${isArchived}\nCompleted: ${isCompleted}`}
+			className={`${styles.task}`}
+			title={`Completed: ${isCompleted}\n`}
 		>
 			{/* Show/Edit title */}
 			{!isEditing && <span className={isCompleted && styles.completed}>{value}</span>}
@@ -28,7 +28,7 @@ export default function Task({ id, value, isCompleted, isArchived, editTask, tog
 				onChange={(e) => setNewTitle(e.target.value)}
 			/>}
 
-			{/* Action button -> Edit, mark as completed, archived and delete */}
+			{/* Action button -> Edit, mark as completed and delete */}
 			<div className={styles.actions}>
 				<button
 					onClick={onEditTackClick}
@@ -40,10 +40,6 @@ export default function Task({ id, value, isCompleted, isArchived, editTask, tog
 						onClick={() => toggleCompletedTask(id)}
 						title={`Mark task as ${!isCompleted ? "completed" : "uncompleted"}`}
 					><GoCheck size={ICON_SIZE} /></button>
-					<button
-						onClick={() => toggleArchivedTask(id)}
-						title={`Mark task as ${!isArchived ? "archived" : "unarchived"}`}
-					><GoArchive size={ICON_SIZE} /></button>
 					<button
 						className={styles.danger}
 						onClick={() => removeTask(id)}
