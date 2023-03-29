@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiNuclearBomb } from "react-icons/gi";
 import { GoAlert } from "react-icons/go";
 import ConfirmationDialog from "../ConfirmationDialog";
 import Input from "../Input";
 import Task from "../Task";
+import CompletedTasksFilter from "./CompletedTasksFilter";
 import styles from "./style.module.scss";
 
-export default function Main({ filteredTasks, tasks, setTasks }) {
+export default function Main({ searchTask, tasks, setTasks }) {
+	const [filteredTasks, setFilteredTasks] = useState([]);
 	const [newTask, setNewTask] = useState("");
 	const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+	const [selectedCompleted, setSelectedCompleted] = useState("All");
+
+	// Filter tasks
+	useEffect(() => {
+		const filterByName = searchTask ? tasks.filter(({ value }) => value.toUpperCase().includes(searchTask.toUpperCase())) : tasks;
+
+		let completedFilter = [];
+		if (selectedCompleted === "All") completedFilter = filterByName;
+		else if (selectedCompleted === "Completed") completedFilter = filterByName.filter(({ isCompleted }) => isCompleted);
+		else completedFilter = filterByName.filter(({ isCompleted }) => !isCompleted);
+
+		setFilteredTasks(completedFilter);
+	}, [searchTask, tasks, selectedCompleted]);
 
 	function onSubmit(e) {
 		e.preventDefault();
@@ -36,6 +51,11 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 
 	return (
 		<main className={styles.main}>
+			<CompletedTasksFilter
+				selectedCompleted={selectedCompleted}
+				setSelectedCompleted={setSelectedCompleted}
+			/>
+
 			<form onSubmit={onSubmit}>
 				<Input
 					placeholder="New task"
@@ -59,7 +79,7 @@ export default function Main({ filteredTasks, tasks, setTasks }) {
 				</ul>
 
 				{
-					filteredTasks.length > 0 &&
+					tasks.length > 0 &&
 					<button
 						className={styles.clearBTN}
 						onClick={() => {

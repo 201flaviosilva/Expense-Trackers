@@ -20,22 +20,16 @@ export default function App() {
    */
   const [tasks, setTasks] = useState(localTasks);
   const [searchTask, setSearchTask] = useState("");
-  const [filteredTasks, setFilteredTasks] = useState([]);
 
   // Update local storage
   useEffect(() => {
     localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(tasks));
   }, [tasks]);
 
-  // Filter tasks
-  useEffect(() => {
-    setFilteredTasks(searchTask ? tasks.filter(({ value }) => value.toUpperCase().includes(searchTask.toUpperCase())) : tasks);
-  }, [searchTask, tasks]);
-
   return (
     <div className="App">
       <Header searchTask={searchTask} setSearchTask={setSearchTask} />
-      <Main filteredTasks={filteredTasks} tasks={tasks} setTasks={setTasks} />
+      <Main searchTask={searchTask} tasks={tasks} setTasks={setTasks} />
       <Footer />
     </div>
   );

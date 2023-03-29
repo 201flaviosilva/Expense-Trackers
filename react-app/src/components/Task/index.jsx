@@ -24,6 +24,7 @@ export default function Task({ id, value, isCompleted, editTask, toggleCompleted
 			{/* Show/Edit title */}
 			{!isEditing && <span className={isCompleted ? styles.completed : ""}>{value}</span>}
 			{isEditing && <input
+				title="Leave empty to cancel"
 				placeholder={value}
 				value={newTitle}
 				onChange={(e) => setNewTitle(e.target.value)}
@@ -33,7 +34,7 @@ export default function Task({ id, value, isCompleted, editTask, toggleCompleted
 			<div className={styles.actions}>
 				<button
 					onClick={onEditTackClick}
-					title="Change the title"
+					title={isEditing ? "Confirm" : "Change the title"}
 				><EditIcon isEditing={isEditing} /></button>
 
 				{!isEditing && <>
