@@ -1,0 +1,83 @@
+@import "../../styles/utils.scss";
+
+.task {
+  width: 100%;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  transition: 0.5s;
+
+  &:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  &:hover {
+    transform: scale(1.025);
+    background-color: black;
+    @include glow(black);
+    border: 1px solid white;
+
+    * {
+      color: white;
+    }
+
+    input {
+      border: 1px solid white;
+    }
+
+    .actions {
+      button {
+        border: 1px solid white;
+      }
+    }
+  }
+
+  span {
+    font-size: 16px;
+
+    &.completed {
+      text-decoration: line-through;
+    }
+  }
+
+  input {
+    flex: 1;
+    margin-right: 8px;
+    padding: 2px 4px;
+    font-size: 16px;
+    color: black;
+    background: none;
+    border: 1px solid black;
+    border-radius: 2px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 4px;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border: 1px solid black;
+      border-radius: 4px;
+      background: none;
+      transition: 0.5s;
+
+      &:hover {
+        @include glow(white);
+        transform: scale(1.1);
+
+        &.danger {
+          @include glow($DANGER);
+          background-color: $DANGER;
+        }
+      }
+    }
+  }
+}

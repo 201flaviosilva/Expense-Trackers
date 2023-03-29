@@ -1,0 +1,12 @@
+#root,
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
