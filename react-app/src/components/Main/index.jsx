@@ -12,7 +12,9 @@ export default function Main({ searchTransaction, transactions, setTransactions 
 		<main className={styles.main}>
 			<Balance transactions={transactions} />
 			<CreateTransaction onCreateNewTransaction={onCreateNewTransaction} />
-			<History searchTransaction={searchTransaction} transactions={transactions} setTransactions={setTransactions} />
+			{transactions.length > 0 &&
+				<History searchTransaction={searchTransaction} transactions={transactions} setTransactions={setTransactions} />
+			}
 		</main>
 	)
 }

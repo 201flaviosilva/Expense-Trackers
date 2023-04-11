@@ -25,25 +25,82 @@
     flex-direction: column;
     gap: 8px;
     padding: 8px 16px;
+    border-radius: 4px;
+
+    @media only screen and (max-width: 750px) {
+      & {
+        width: 75%;
+        gap: 4px;
+        padding: 4px 8px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+      & {
+        width: 90%;
+        gap: 2px;
+        padding: 4px;
+      }
+    }
   }
 
   div.balance {
+    border: 1px solid black;
+
+    div.table {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      div {
+        text-align: center;
+
+        p {
+          &.title {
+            font-weight: bold;
+          }
+
+          &.positiveBalance {
+            color: green;
+          }
+
+          &.negativeBalance {
+            color: red;
+          }
+        }
+      }
+    }
   }
 
   form.createTransaction {
     border: 1px solid #b5b5b5;
-    border-radius: 4px;
     background-color: #f2f2f2;
     @include glow(#b5b5b5);
 
-    div.inputs {
+    div.inputsContainer {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
-    }
 
-    label {
-      width: 100%;
+      @media only screen and (max-width: 750px) {
+        & {
+          grid-template-columns: 1fr;
+
+          div {
+            display: flex;
+            gap: 0px;
+          }
+        }
+      }
+
+      .labelStyle {
+        width: 100%;
+
+        input {
+          width: 90%;
+          min-width: 100px;
+        }
+      }
     }
 
     button {
@@ -51,10 +108,18 @@
       padding: 8px 0;
       border: 1px solid black;
       border-radius: 4px;
+      background: none;
+      @include glow(#b5b5b5);
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.025);
+      }
     }
   }
 
   div.history {
+    border: 1px solid black;
     overflow: auto;
 
     ul {

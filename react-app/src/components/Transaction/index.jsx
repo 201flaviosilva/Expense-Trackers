@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { GoAlert, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
 import styles from "./style.module.scss";
 
@@ -9,18 +9,24 @@ const DATE_FORMAT = "DD-MM-yyyy";
 export default function Transaction({ id, title, amount, date, editTransaction, removeTransaction }) {
 	const [isHouver, setIsHouver] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
-	const [newTitle, setNewTitle] = useState("");
+	const [updatedTrans, setUpdatedTrans] = useState({ title, amount, date: moment(date).format("yyyy-MM-DD") });
+
+	const balanceColor = (amount > 0 && styles.positiveBalance) || (amount < 0 && styles.negativeBalance) || "";
 
 	const onEditTackClick = useCallback(() => {
 		if (!isEditing) return setIsEditing(true);
 
-		newTitle && editTransaction(id, newTitle);
+		editTransaction({ id, ...updatedTrans });
 		setIsEditing(false);
-	}, [editTransaction, id, isEditing, newTitle])
+	}, [editTransaction, id, isEditing, updatedTrans]);
+
+	useEffect(() => {
+		setUpdatedTrans({ title, amount, date: moment(date).format("yyyy-MM-DD") });
+	}, [title, amount, date,]);
 
 	return (
 		<li
-			className={`${styles.transaction}`}
+			className={`${styles.transaction} ${balanceColor}`}
 			title={`Title: ${title}\n Amount: ${amount}\n Date: ${moment(date).format(DATE_FORMAT)}`}
 		>
 			{/* Show/Edit title */}
@@ -29,14 +35,13 @@ export default function Transaction({ id, title, amount, date, editTransaction, 
 				<span>{amount}</span>
 				<span>{moment(date).format(DATE_FORMAT)}</span>
 			</>}
-			{isEditing && <>
-				<input
-					title="Leave empty to cancel"
-					placeholder={title}
-					value={title}
-					onChange={(e) => setNewTitle(e.target.value)}
-				/>
-			</>}
+			{isEditing && <EditTransaction
+				title={title}
+				amount={amount}
+				date={moment(date).format(DATE_FORMAT)}
+				updatedTrans={updatedTrans}
+				setUpdatedTrans={setUpdatedTrans}
+			/>}
 
 			{/* Action button -> Edit, mark as completed and delete */}
 			<div className={styles.actions}>
@@ -56,6 +61,36 @@ export default function Transaction({ id, title, amount, date, editTransaction, 
 				</>}
 			</div>
 		</li>
+	)
+}
+
+function EditTransaction({
+	title, amount, date,
+	updatedTrans, setUpdatedTrans
+}) {
+	return (
+		<>
+			<input
+				title="Leave empty to cancel"
+				placeholder={title}
+				value={updatedTrans.title}
+				onChange={(e) => setUpdatedTrans(prev => ({ ...prev, title: e.target.value }))}
+			/>
+			<input
+				type="number"
+				title="Leave empty to cancel"
+				placeholder={amount}
+				value={updatedTrans.amount}
+				onChange={(e) => setUpdatedTrans(prev => ({ ...prev, amount: e.target.value }))}
+			/>
+			<input
+				type="date"
+				title="Leave empty to cancel"
+				placeholder={date}
+				value={updatedTrans.date}
+				onChange={(e) => setUpdatedTrans(prev => ({ ...prev, date: e.target.value }))}
+			/>
+		</>
 	)
 }
 

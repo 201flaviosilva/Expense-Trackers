@@ -8,7 +8,7 @@ export default function Balance({ transactions }) {
 		<div className={styles.balance}>
 			<h2>Balance</h2>
 
-			<div>
+			<div className={styles.table}>
 				<Column label="Income" value={income} />
 				<Column label="Total" value={income + expense} />
 				<Column label="Expense" value={expense} />
@@ -18,10 +18,12 @@ export default function Balance({ transactions }) {
 }
 
 function Column({ label, value }) {
+	const balanceColor = (value > 0 && styles.positiveBalance) || (value < 0 && styles.negativeBalance) || "";
+
 	return (
 		<div>
-			<p>{label}</p>
-			<p>{value}€</p>
+			<p className={`${styles.title} ${balanceColor}`}>{label}</p>
+			<p className={balanceColor}>{value}€</p>
 		</div>
 	)
 

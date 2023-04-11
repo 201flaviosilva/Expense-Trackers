@@ -3,20 +3,18 @@
 ## Description
 
 This is the React implementation of the Expense Tracker
-
 ## MVP
 
-- [ ] Add an individual transaction (name, amount, date)
-- [ ] Search bar to filter the transaction with the current input;
-- [ ] Filter by month/year;
-- [ ] Save/load state to/from localstorage;
-- [ ] Individually:
-  - [ ] Remove
-  - [ ] Edit:
-    - [ ] Name;
-    - [ ] Amount;
-    - [ ] Date;
-- [ ] Clear all items (with a confirmation modal);
+- [x] Add an individual transaction (name, amount, date)
+- [x] Search bar to filter the transaction with the current input;
+- [x] Save/load state to/from localstorage;
+- [x] Individually:
+  - [x] Remove
+  - [x] Edit:
+    - [x] Name;
+    - [x] Amount;
+    - [x] Date;
+- [x] Clear all items (with a confirmation modal);
 
 
 ## Make it run
@@ -56,8 +54,10 @@ npm start
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
 
-## Relevant Dependencies
+## Relevant Technologies
 
-- [react](https://github.com/facebook/react);
-- [node-sass](https://www.npmjs.com/package/node-sass);
-- [react-icons](https://react-icons.github.io/react-icons/);
+- [Create React App](https://create-react-app.dev/);
+- [React/React Dom](https://react.dev/);
+- [React Icons](https://react-icons.github.io/react-icons/);
+- [Moment](https://momentjs.com/);
+- [SCSS](https://sass-lang.com/)/[CSS Modules](https://github.com/css-modules/css-modules);

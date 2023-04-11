@@ -4,32 +4,34 @@ import Input from "../Input";
 import styles from "./style.module.scss";
 
 export default function CreateTransaction({ onCreateNewTransaction }) {
+	const TODAY = moment(new Date()).format("YYYY-MM-DD");
+
 	const [newTransactionTitle, setNewTransactionTitle] = useState("");
 	const [newTransactionAmount, setNewTransactionAmount] = useState(0);
-	const [newTransactionDate, setNewTransactionDate] = useState(moment(new Date()).format("YYYY-MM-DD"));
+	const [newTransactionDate, setNewTransactionDate] = useState(TODAY);
 
 	function onSubmit(e) {
 		e.preventDefault();
 
 		const newTransaction = {
 			id: Math.random(),
-			title: newTransactionTitle,
-			amount: newTransactionAmount,
-			date: newTransactionDate,
+			title: newTransactionTitle || "empty",
+			amount: newTransactionAmount || 0,
+			date: newTransactionDate || TODAY,
 		};
 
 		onCreateNewTransaction(newTransaction);
 
 		setNewTransactionTitle("");
 		setNewTransactionAmount(0);
-		setNewTransactionDate(moment(new Date()).format("YYYY-MM-DD"));
+		setNewTransactionDate(TODAY);
 	}
 
 	return (
 		<form onSubmit={onSubmit} className={styles.createTransaction}>
 			<h2>New Transaction</h2>
 
-			<div className={styles.inputs}>
+			<div className={styles.inputsContainer}>
 				<Input
 					placeholder="Title"
 					title="Transaction Title"

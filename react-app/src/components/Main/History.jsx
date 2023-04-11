@@ -11,14 +11,19 @@ export default function History({ searchTransaction, transactions, setTransactio
 
 	// Filter transactions
 	useEffect(() => {
-		const filterByName = searchTransaction ? transactions.filter(({ value }) => value.toUpperCase().includes(searchTransaction.toUpperCase())) : transactions;
+		const filterByName = searchTransaction ? transactions.filter(({ title }) => title.toUpperCase().includes(searchTransaction.toUpperCase())) : transactions;
 
 		setFilteredTransactions(filterByName);
 	}, [searchTransaction, transactions]);
 
-	function editTransaction(id, newName) {
+	function editTransaction({ id, title, amount, date }) {
 		setTransactions(transactions.map(t => {
-			if (t.id === id) return { ...t, value: newName };
+			if (t.id === id) return {
+				...t,
+				title: title || t.title,
+				amount: amount || t.amount,
+				date: date || t.date,
+			};
 			return t;
 		}));
 	}
@@ -38,17 +43,13 @@ export default function History({ searchTransaction, transactions, setTransactio
 						editTransaction={editTransaction}
 						removeTransaction={removeTransaction}
 					/>)}
-
 				</ul>
 
-				{
-					transactions.length > 0 &&
-					<button
-						className={styles.clearBTN}
-						onClick={() => setIsConfirmOpen(true)}>
-						<GiNuclearBomb size={24} />
-					</button>
-				}
+				<button
+					className={styles.clearBTN}
+					onClick={() => setIsConfirmOpen(true)}>
+					<GiNuclearBomb size={24} />
+				</button>
 			</div>
 
 			{

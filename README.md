@@ -12,7 +12,6 @@ This is the MVP base for all App implementations:
 
 - Add an individual task (name, amount, date)
 - Search bar to filter the task with the current input;
-- Filter by month/year;
 - Save/load state to/from localstorage;
 - Individually:
   - Remove
