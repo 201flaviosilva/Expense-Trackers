@@ -1,6 +1,6 @@
 @import "../../styles/utils.scss";
 
-.task {
+.transaction {
   width: 100%;
   min-height: 32px;
   display: flex;
@@ -38,10 +38,6 @@
 
   span {
     font-size: 16px;
-
-    &.completed {
-      text-decoration: line-through;
-    }
   }
 
   input {

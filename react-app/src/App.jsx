@@ -1,9 +1,10 @@
 /**
- * @typedef Task
+ * @typedef Transaction
  * @type {object}
- * @property {number} id - The task identifier.
- * @property {string} value - The task value/title.
- * @property {boolean} isCompleted - Indicates if the task is completed.
+ * @property {number} id - The transaction identifier.
+ * @property {string} title - The transaction title.
+ * @property {boolean} amount - 
+ * @property {boolean} date - 
  */
 
 import { useEffect, useState } from "react";
@@ -11,25 +12,25 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
 
-const LOCAL_NAME_SPACE = "tasks";
+const LOCAL_NAME_SPACE = "React-App-Expense-Tracker";
 
 export default function App() {
-  const localTasks = JSON.parse(localStorage.getItem(LOCAL_NAME_SPACE)) || []; // Load from the local storage
+  const localTransactions = JSON.parse(localStorage.getItem(LOCAL_NAME_SPACE)) || []; // Load from the local storage
   /**
-   * @type {Task[]}
+   * @type {Transaction[]}
    */
-  const [tasks, setTasks] = useState(localTasks);
-  const [searchTask, setSearchTask] = useState("");
+  const [transactions, setTransactions] = useState(localTransactions);
+  const [searchTransaction, setSearchTransaction] = useState("");
 
   // Update local storage
   useEffect(() => {
-    localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(transactions));
+  }, [transactions]);
 
   return (
     <div className="App">
-      <Header searchTask={searchTask} setSearchTask={setSearchTask} />
-      <Main searchTask={searchTask} tasks={tasks} setTasks={setTasks} />
+      <Header searchTransaction={searchTransaction} setSearchTransaction={setSearchTransaction} />
+      <Main searchTransaction={searchTransaction} transactions={transactions} setTransactions={setTransactions} />
       <Footer />
     </div>
   );

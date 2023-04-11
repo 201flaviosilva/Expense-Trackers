@@ -1,20 +1,23 @@
-# React To Do List App
+# React Expense Tracker App
 
 ## Description
 
-This is the React implementation of the To Do List
+This is the React implementation of the Expense Tracker
 
 ## MVP
 
-- [x] Add an individual task;
-- [x] Search bar to filter the task with the current input;
-- [x] Filters (complete, incomplete);
-- [x] Save/load state to/from localstorage;
-- [x] Individually:
-  - [X] Remove
-  - [X] Mark as complete
-  - [x] Edit;
-- [x] Clear all tasks (with a confirmation modal);
+- [ ] Add an individual transaction (name, amount, date)
+- [ ] Search bar to filter the transaction with the current input;
+- [ ] Filter by month/year;
+- [ ] Save/load state to/from localstorage;
+- [ ] Individually:
+  - [ ] Remove
+  - [ ] Edit:
+    - [ ] Name;
+    - [ ] Amount;
+    - [ ] Date;
+- [ ] Clear all items (with a confirmation modal);
+
 
 ## Make it run
 
@@ -23,8 +26,8 @@ This is the React implementation of the To Do List
 Clone the project and move it into the `react-app` folder:
 
 ```sh
-git clone https://github.com/201flaviosilva-labs/To-Do-Lists.git
-cd To-Do-Lists/react-app
+git clone https://github.com/201flaviosilva-labs/Expense-Trackers.git
+cd Expense-Trackers/react-app
 ```
 
 ### Install the dependencies

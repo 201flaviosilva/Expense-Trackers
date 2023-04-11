@@ -1,8 +1,8 @@
-# To-Do-Lists
+# Expense Trackers
 
 ## Description
 
-A collection of languages/Frameworks implementations of a basic To Do List.
+A collection of languages/Frameworks implementations of a basic Expense Tracker.
 
 Inspired by this Breakout game recreation project in various JS Engines: https://github.com/city41/breakouts
 
@@ -10,9 +10,14 @@ Inspired by this Breakout game recreation project in various JS Engines: https:/
 
 This is the MVP base for all App implementations:
 
-- Add an individual task;
+- Add an individual task (name, amount, date)
 - Search bar to filter the task with the current input;
-- Filters (complete, incomplete);
+- Filter by month/year;
 - Save/load state to/from localstorage;
-- Individually remove/complete/edit a task;
-- Clear all tasks (with a confirmation modal);
+- Individually:
+  - Remove
+  - Edit:
+    - Name;
+    - Amount;
+    - Date;
+- Clear all items (with a confirmation modal);

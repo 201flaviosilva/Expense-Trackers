@@ -1,10 +1,12 @@
+import moment from "moment";
 import { useCallback, useState } from "react";
 import { GoAlert, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
 import styles from "./style.module.scss";
 
 const ICON_SIZE = 16;
+const DATE_FORMAT = "DD-MM-yyyy";
 
-export default function Task({ id, value, isCompleted, editTask, toggleCompletedTask, removeTask }) {
+export default function Transaction({ id, title, amount, date, editTransaction, removeTransaction }) {
 	const [isHouver, setIsHouver] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState("");
@@ -12,23 +14,29 @@ export default function Task({ id, value, isCompleted, editTask, toggleCompleted
 	const onEditTackClick = useCallback(() => {
 		if (!isEditing) return setIsEditing(true);
 
-		newTitle && editTask(id, newTitle);
+		newTitle && editTransaction(id, newTitle);
 		setIsEditing(false);
-	}, [editTask, id, isEditing, newTitle])
+	}, [editTransaction, id, isEditing, newTitle])
 
 	return (
 		<li
-			className={`${styles.task}`}
-			title={`Completed: ${isCompleted}`}
+			className={`${styles.transaction}`}
+			title={`Title: ${title}\n Amount: ${amount}\n Date: ${moment(date).format(DATE_FORMAT)}`}
 		>
 			{/* Show/Edit title */}
-			{!isEditing && <span className={isCompleted ? styles.completed : ""}>{value}</span>}
-			{isEditing && <input
-				title="Leave empty to cancel"
-				placeholder={value}
-				value={newTitle}
-				onChange={(e) => setNewTitle(e.target.value)}
-			/>}
+			{!isEditing && <>
+				<span>{title}</span>
+				<span>{amount}</span>
+				<span>{moment(date).format(DATE_FORMAT)}</span>
+			</>}
+			{isEditing && <>
+				<input
+					title="Leave empty to cancel"
+					placeholder={title}
+					value={title}
+					onChange={(e) => setNewTitle(e.target.value)}
+				/>
+			</>}
 
 			{/* Action button -> Edit, mark as completed and delete */}
 			<div className={styles.actions}>
@@ -39,15 +47,11 @@ export default function Task({ id, value, isCompleted, editTask, toggleCompleted
 
 				{!isEditing && <>
 					<button
-						onClick={() => toggleCompletedTask(id)}
-						title={`Mark task as ${!isCompleted ? "completed" : "uncompleted"}`}
-					><GoCheck size={ICON_SIZE} /></button>
-					<button
 						className={styles.danger}
-						onClick={() => removeTask(id)}
+						onClick={() => removeTransaction(id)}
 						onMouseEnter={() => setIsHouver(true)}
 						onMouseLeave={() => setIsHouver(false)}
-						title="Delete task"
+						title="Delete transaction"
 					><DeleteIcon isHouver={isHouver} /></button>
 				</>}
 			</div>

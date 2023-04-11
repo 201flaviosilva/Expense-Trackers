@@ -12,82 +12,50 @@
   gap: 8px;
   overflow: auto;
 
-  aside {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-
-    @media only screen and (max-width: 600px) {
-      & {
-        right: 8px;
-      }
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 4px;
-      border-radius: 4px;
-      border: 1px solid black;
-      transition: 1s;
-
-      &.toggleBTN {
-        width: 120px;
-
-        @media only screen and (max-width: 600px) {
-          & {
-            width: 32px;
-          }
-        }
-      }
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      border: 1px solid black;
-      padding: 4px 8px;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
-
-      button {
-        width: 100%;
-
-        &.active {
-          border: 1px solid white;
-          background: black;
-          color: white;
-          transform: scale(1.075);
-        }
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
+  h2 {
+    text-align: center;
   }
 
-  form {
+  div.balance,
+  form.createTransaction,
+  div.history {
     width: 50%;
     min-width: 250px;
-
-    label {
-      width: 100%;
-    }
-  }
-
-  .list {
-    width: 50%;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 8px 16px;
+  }
+
+  div.balance {
+  }
+
+  form.createTransaction {
+    border: 1px solid #b5b5b5;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    @include glow(#b5b5b5);
+
+    div.inputs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    label {
+      width: 100%;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 8px 0;
+      border: 1px solid black;
+      border-radius: 4px;
+    }
+  }
+
+  div.history {
+    overflow: auto;
 
     ul {
       width: 100%;

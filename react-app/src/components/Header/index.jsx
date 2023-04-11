@@ -1,14 +1,14 @@
 import Input from "../Input";
 import styles from "./style.module.scss";
 
-export default function Header({ searchTask, setSearchTask }) {
+export default function Header({ searchTransaction, setSearchTransaction }) {
 	return (
 		<header className={styles.header}>
-			<h1>To Do List</h1>
+			<h1>Expense Tracker</h1>
 			<Input
-				placeholder="Search for a task"
-				value={searchTask}
-				setValue={setSearchTask}
+				placeholder="Search for a transaction"
+				value={searchTransaction}
+				setValue={setSearchTransaction}
 			/>
 			<h1>React App</h1>
 		</header>
