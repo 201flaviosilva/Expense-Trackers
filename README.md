@@ -10,13 +10,20 @@ Inspired by this Breakout game recreation project in various JS Engines: https:/
 
 This is the MVP base for all App implementations:
 
-- Add an individual task (name, amount, date)
-- Search bar to filter the task with the current input;
-- Save/load state to/from localstorage;
-- Individually:
-  - Remove
-  - Edit:
-    - Name;
-    - Amount;
-    - Date;
+- Add an individual items (name, amount, date);
+- Search bar to filter the transaction with the current input;
+- Save/load state;
+- Individually remove;
 - Clear all items (with a confirmation modal);
+
+## Nice To Have
+
+This it's some features that would be amazing to have in the app:
+
+- Search bar to filter the items with the current input;
+- Individually edit:
+  - Name;
+  - Amount;
+  - Date;
+- Edit a Item;
+- Categories/labels;
