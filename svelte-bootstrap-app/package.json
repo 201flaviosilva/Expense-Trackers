@@ -1,0 +1,24 @@
+{
+  "name": "svelte-bootstrap-expense-tracker-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "clear": "rm -rf build && rm -rf out && rm -rf dist",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "sveltestrap": "^5.10.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.1.1",
+    "node-sass": "^8.0.0",
+    "sass": "^1.62.1",
+    "svelte": "^3.58.0",
+    "svelte-preprocess": "^5.0.3",
+    "vite": "^4.3.4"
+  }
+}
