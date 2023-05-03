@@ -1,6 +1,8 @@
 <script>
   import moment from "moment";
-  import { ListGroupItem } from "sveltestrap";
+  import Icon from "svelte-icons-pack/Icon.svelte";
+  import BsTrash from "svelte-icons-pack/bs/BsTrash";
+  import { Button } from "sveltestrap";
 
   export let title = "";
   export let amount = 0;
@@ -13,6 +15,13 @@
   }
 </script>
 
-<ListGroupItem color={getColor()}>
-  {title} - {amount}€ - {moment(date).format("DD/MM/YYYY")}
-</ListGroupItem>
+<tr>
+  <th title="title">{title}</th>
+  <th title="amount" class={`table-${getColor()}`}>{amount}€</th>
+  <th title="date">{moment(date).format("DD/MM/YYYY")}</th>
+  <th title="Delete">
+    <Button color="danger" class="w-100">
+      <Icon src={BsTrash} />
+    </Button>
+  </th>
+</tr>

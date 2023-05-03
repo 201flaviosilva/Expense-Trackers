@@ -24,7 +24,9 @@
 
 <header>
   <Navbar color="dark" dark expand="sm">
-    <NavbarBrand href="/">Expense Tracker Svelte Bootstrap App</NavbarBrand>
+    <NavbarBrand href="/" class="text-wrap text-center"
+      >Svelte Bootstrap - Expense Tracker App</NavbarBrand
+    >
     <NavbarToggler on:click={() => (isNavOpen = !isNavOpen)} />
 
     <Collapse isOpen={isNavOpen} navbar expand="sm" on:update={toggleNavbar}>

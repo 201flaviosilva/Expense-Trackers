@@ -17,9 +17,11 @@
     &.wrapper {
       width: 100vw;
       height: 100vh;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      padding-bottom: 16px;
     }
   }
 </style>
