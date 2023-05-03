@@ -54,6 +54,6 @@ npm start
 
 - [Vite](https://vitejs.dev/);
 - [Svelte](https://svelte.dev/);
-- [Svelte Icons](https://svelte-icons.vercel.app/);
+- [Svelte Icons Pack](https://leshak.github.io/svelte-icons-pack);
 - [Moment](https://momentjs.com/);
 - [Bootstrap](https://getbootstrap.com/)/[sveltestrap](https://sveltestrap.js.org/);

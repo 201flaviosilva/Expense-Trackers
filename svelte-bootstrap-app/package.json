@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "moment": "^2.29.4",
+    "svelte-icons-pack": "^2.1.0",
     "sveltestrap": "^5.10.0"
   },
   "devDependencies": {

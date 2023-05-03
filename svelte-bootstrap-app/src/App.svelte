@@ -6,9 +6,20 @@
   let searchTransaction = "";
 </script>
 
-<Header bind:searchTransaction />
-<Main />
-<Footer />
+<div class="wrapper bg-black text-white">
+  <Header bind:searchTransaction />
+  <Main />
+  <Footer />
+</div>
 
 <style lang="scss">
+  div {
+    &.wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
 </style>
