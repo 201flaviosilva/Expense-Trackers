@@ -11,15 +11,14 @@
     NavbarToggler,
   } from "sveltestrap";
 
-  let isNavOpen = false;
-
-  function toggleNavbar(event) {
-    isNavOpen = event.detail.isOpen;
+  export let searchTransaction;
+  function handleChangeSearch(event) {
+    searchTransaction = event.target.value;
   }
 
-  let searchTitle = "beep";
-  function handleChangeSearchTitle(e) {
-    searchTitle = e.target.value;
+  let isNavOpen = false;
+  function toggleNavbar(event) {
+    isNavOpen = event.detail.isOpen;
   }
 </script>
 
@@ -36,8 +35,8 @@
               <Input
                 color="dark"
                 placeholder="Search for a transaction"
-                value={searchTitle}
-                on:input={handleChangeSearchTitle}
+                value={searchTransaction}
+                on:input={handleChangeSearch}
               />
             </FormGroup>
           </Form>
@@ -48,10 +47,7 @@
 </header>
 
 <style lang="scss">
-  li {
-    &.nav-item {
-      align-items: center;
-      justify-content: center;
-    }
+  header {
+    width: 100vw;
   }
 </style>
