@@ -11,6 +11,7 @@
 </script>
 
 <main>
+  <!-- List all Transactions -->
   <Table responsive bordered dark hover striped>
     <thead>
       <tr>

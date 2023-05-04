@@ -32,8 +32,12 @@
     <Collapse isOpen={isNavOpen} navbar expand="sm" on:update={toggleNavbar}>
       <Nav class="ms-auto" navbar>
         <NavItem>
-          <Form>
-            <FormGroup>
+          <Form on:submit={(e) => e.preventDefault()}>
+            <FormGroup
+              floating
+              label="Search for a transaction"
+              class="text-black"
+            >
               <Input
                 color="dark"
                 placeholder="Search for a transaction"
