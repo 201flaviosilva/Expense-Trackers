@@ -11,18 +11,29 @@
   const localTransactions =
     JSON.parse(localStorage.getItem(LOCAL_NAME_SPACE)) || [];
 
-  // Type: {id: string, title: string, amount: number, date: Date}
-  const transactionsList = localTransactions;
+  // Type: {id: number, title: string, amount: number, date: Date}
+  let transactionsList = localTransactions;
 
   // Update local storage
   $: {
     localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(transactionsList));
   }
 
-  // New Task Modal
+  // New Transaction Modal
   let isOpen = false;
   function toggle() {
     isOpen = !isOpen;
+  }
+
+  // Create new transaction
+  function newTransaction(title, amount, date) {
+    const newT = {
+      id: Math.random(),
+      title,
+      amount,
+      date,
+    };
+    transactionsList = [...transactionsList, newT];
   }
 </script>
 
@@ -64,7 +75,7 @@
   </div>
 </main>
 
-<NewTransactionModal {isOpen} {toggle} />
+<NewTransactionModal {isOpen} {toggle} {newTransaction} />
 
 <style lang="scss">
   main {
