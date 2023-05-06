@@ -2,9 +2,11 @@
   import Icon from "svelte-icons-pack/Icon.svelte";
   import AiOutlinePlus from "svelte-icons-pack/ai/AiOutlinePlus";
   import FaSolidBomb from "svelte-icons-pack/fa/FaSolidBomb";
-  import { Button, Table } from "sveltestrap";
+  import { Button } from "sveltestrap";
+  import History from "./History.svelte";
   import NewTransactionModal from "./NewTransactionModal.svelte";
-  import Transaction from "./Transaction.svelte";
+
+  export let searchTransaction;
 
   // Get data from local storage
   const LOCAL_NAME_SPACE = "Svelte-Bootstrap-App-Expense-Tracker";
@@ -39,26 +41,7 @@
 
 <main>
   <!-- List all Transactions -->
-  <Table responsive bordered dark hover striped>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Amount</th>
-        <th>Date</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {#each transactionsList as transaction}
-        <Transaction
-          title={transaction.title}
-          amount={transaction.amount}
-          date={transaction.date}
-        />
-      {/each}
-    </tbody>
-  </Table>
+  <History {searchTransaction} {transactionsList} />
 
   <!-- Action Buttons -->
   <div class="action-buttons">

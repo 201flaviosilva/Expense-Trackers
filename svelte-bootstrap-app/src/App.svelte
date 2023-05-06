@@ -8,7 +8,7 @@
 
 <div class="wrapper bg-black text-white">
   <Header bind:searchTransaction />
-  <Main />
+  <Main {searchTransaction} />
   <Footer />
 </div>
 
