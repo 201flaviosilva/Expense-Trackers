@@ -5,6 +5,7 @@
   import { Button } from "sveltestrap";
   import History from "./History.svelte";
   import NewTransactionModal from "./NewTransactionModal.svelte";
+  import RemoveAllModal from "./RemoveAllModal.svelte";
 
   export let searchTransaction;
 
@@ -16,15 +17,12 @@
   // Type: {id: number, title: string, amount: number, date: Date}
   let transactionsList = localTransactions;
 
+  let isNewTransactionOpen = false;
+  let isRemoveAllOpen = false;
+
   // Update local storage
   $: {
     localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(transactionsList));
-  }
-
-  // New Transaction Modal
-  let isOpen = false;
-  function toggle() {
-    isOpen = !isOpen;
   }
 
   // Create new transaction
@@ -42,6 +40,11 @@
   function removeTransaction(id) {
     transactionsList = transactionsList.filter((t) => t.id !== id);
   }
+
+  // Remove all
+  function removeAll() {
+    transactionsList = [];
+  }
 </script>
 
 <main>
@@ -53,17 +56,34 @@
     <Button
       color="primary"
       title="Add new Transaction"
-      on:click={() => (isOpen = true)}
+      on:click={() => (isNewTransactionOpen = true)}
     >
       <Icon src={AiOutlinePlus} color="white" size="1.5em" />
     </Button>
-    <Button color="danger" title="Remove All">
-      <Icon src={FaSolidBomb} color="black" />
-    </Button>
-  </div>
-</main>
 
-<NewTransactionModal {isOpen} {toggle} {newTransaction} />
+    {#if transactionsList.length}
+      <Button
+        color="danger"
+        title="Remove All"
+        on:click={() => (isRemoveAllOpen = true)}
+      >
+        <Icon src={FaSolidBomb} color="black" />
+      </Button>
+    {/if}
+  </div>
+
+  <NewTransactionModal
+    isOpen={isNewTransactionOpen}
+    toggle={() => (isNewTransactionOpen = !isNewTransactionOpen)}
+    {newTransaction}
+  />
+  <RemoveAllModal
+    {transactionsList}
+    isOpen={isRemoveAllOpen}
+    toggle={() => (isRemoveAllOpen = !isRemoveAllOpen)}
+    {removeAll}
+  />
+</main>
 
 <style lang="scss">
   main {
