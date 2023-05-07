@@ -4,6 +4,7 @@
 
   export let searchTransaction;
   export let transactionsList;
+  export let removeTransaction;
 
   let filterByName = [];
 
@@ -28,11 +29,7 @@
 
   <tbody>
     {#each filterByName as transaction}
-      <Transaction
-        title={transaction.title}
-        amount={transaction.amount}
-        date={transaction.date}
-      />
+      <Transaction {transaction} {removeTransaction} />
     {/each}
   </tbody>
 </Table>

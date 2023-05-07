@@ -37,11 +37,16 @@
     };
     transactionsList = [...transactionsList, newT];
   }
+
+  // Remove Transaction
+  function removeTransaction(id) {
+    transactionsList = transactionsList.filter((t) => t.id !== id);
+  }
 </script>
 
 <main>
   <!-- List all Transactions -->
-  <History {searchTransaction} {transactionsList} />
+  <History {searchTransaction} {transactionsList} {removeTransaction} />
 
   <!-- Action Buttons -->
   <div class="action-buttons">

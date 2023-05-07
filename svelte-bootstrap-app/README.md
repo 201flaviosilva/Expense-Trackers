@@ -9,7 +9,7 @@ This is the Svelte and Bootstrap implementation of the Expense Tracker
 - [X] Add an individual transaction (name, amount, date);
 - [X] Search bar to filter the transaction with the current input;
 - [X] Save/load state to/from localstorage;
-- [ ] Individually remove;
+- [X] Individually remove;
 - [ ] Clear all items (with a confirmation modal);
 
 

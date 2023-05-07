@@ -4,23 +4,26 @@
   import BsTrash from "svelte-icons-pack/bs/BsTrash";
   import { Button } from "sveltestrap";
 
-  export let title = "";
-  export let amount = 0;
-  export let date = new Date();
+  export let removeTransaction;
+  export let transaction;
 
   function getColor() {
-    if (amount < 0) return "danger";
-    else if (amount > 0) return "success";
+    if (transaction.amount < 0) return "danger";
+    else if (transaction.amount > 0) return "success";
     else return "dark";
   }
 </script>
 
 <tr>
-  <th title="title">{title}</th>
-  <th title="amount" class={`table-${getColor()}`}>{amount}€</th>
-  <th title="date">{moment(date).format("DD/MM/YYYY")}</th>
+  <th title="title">{transaction.title}</th>
+  <th title="amount" class={`table-${getColor()}`}>{transaction.amount}€</th>
+  <th title="date">{moment(transaction.date).format("DD/MM/YYYY")}</th>
   <th title="Delete">
-    <Button color="danger" class="w-100">
+    <Button
+      color="danger"
+      class="w-100"
+      on:click={() => removeTransaction(transaction.id)}
+    >
       <Icon src={BsTrash} />
     </Button>
   </th>
