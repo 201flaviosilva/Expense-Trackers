@@ -7,8 +7,8 @@ This is the Svelte and Bootstrap implementation of the Expense Tracker
 ## MVP
 
 - [X] List all transactions
-- [ ] Show a basic balance:
-  - Total (Incomes-Expenses);
+- [X] Show a basic dashboard balance:
+  - Total (Incomes+Expenses);
   - Total Incomes;
   - Total Expenses;
 - [X] Add an individual transaction (name, amount, date);

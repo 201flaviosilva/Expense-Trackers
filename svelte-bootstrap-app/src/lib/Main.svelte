@@ -3,6 +3,7 @@
   import AiOutlinePlus from "svelte-icons-pack/ai/AiOutlinePlus";
   import FaSolidBomb from "svelte-icons-pack/fa/FaSolidBomb";
   import { Button } from "sveltestrap";
+  import Balance from "./Balance.svelte";
   import History from "./History.svelte";
   import NewTransactionModal from "./NewTransactionModal.svelte";
   import RemoveAllModal from "./RemoveAllModal.svelte";
@@ -48,6 +49,8 @@
 </script>
 
 <main>
+  <Balance {transactionsList} />
+
   <!-- List all Transactions -->
   <History {searchTransaction} {transactionsList} {removeTransaction} />
 

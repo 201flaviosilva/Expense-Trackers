@@ -11,8 +11,8 @@ Inspired by this Breakout game recreation project in various JS Engines: https:/
 This is the MVP base for all App implementations:
 
 - List all transactions
-- Show a basic balance:
-  - Total (Incomes-Expenses);
+- Show a basic dashboard balance:
+  - Total (Incomes+Expenses);
   - Total Incomes;
   - Total Expenses;
 - Add an individual items (name, amount, date);
