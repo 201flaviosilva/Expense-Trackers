@@ -46,16 +46,3 @@
     />
   </Row>
 </Container>
-
-<style lang="scss">
-  div {
-    &.wrapper {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-  }
-</style>
