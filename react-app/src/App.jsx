@@ -4,7 +4,7 @@
  * @property {number} id - The transaction identifier.
  * @property {string} title - The transaction title.
  * @property {boolean} amount - 
- * @property {boolean} date - 
+ * @property {Date} date - 
  */
 
 import { useEffect, useState } from "react";
