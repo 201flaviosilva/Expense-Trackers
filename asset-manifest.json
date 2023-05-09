@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/React%20implementation%20of%20the%20Expense%20Tracker%20App/static/css/main.eeaee7ec.css",
-    "main.js": "/React%20implementation%20of%20the%20Expense%20Tracker%20App/static/js/main.349fa852.js",
-    "index.html": "/React%20implementation%20of%20the%20Expense%20Tracker%20App/index.html",
-    "main.eeaee7ec.css.map": "/React%20implementation%20of%20the%20Expense%20Tracker%20App/static/css/main.eeaee7ec.css.map",
-    "main.349fa852.js.map": "/React%20implementation%20of%20the%20Expense%20Tracker%20App/static/js/main.349fa852.js.map"
+    "main.css": "./static/css/main.eeaee7ec.css",
+    "main.js": "./static/js/main.349fa852.js",
+    "index.html": "./index.html",
+    "main.eeaee7ec.css.map": "./static/css/main.eeaee7ec.css.map",
+    "main.349fa852.js.map": "./static/js/main.349fa852.js.map"
   },
   "entrypoints": [
     "static/css/main.eeaee7ec.css",
