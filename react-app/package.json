@@ -2,7 +2,8 @@
   "name": "react-expense-tracker-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "React implementation of the Expense Tracker App",
+  "description": "React implementation of the Expense Tracker App",
+  "homepage": ".",
   "author": "201flaviosilva",
   "license": "MIT",
   "scripts": {
