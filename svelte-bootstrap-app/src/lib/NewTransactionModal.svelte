@@ -39,8 +39,7 @@
         <Input
           color="dark"
           placeholder="Transaction Title"
-          value={title}
-          on:input={(e) => (title = e.target.value)}
+          bind:value={title}
         />
       </FormGroup>
 
@@ -49,8 +48,7 @@
           type="number"
           color="dark"
           placeholder="Transaction Amount"
-          value={amount}
-          on:input={(e) => (amount = e.target.value)}
+          bind:value={amount}
         />
       </FormGroup>
 
@@ -59,8 +57,7 @@
           type="date"
           color="dark"
           placeholder="Transaction Date"
-          value={date}
-          on:input={(e) => (date = e.target.value)}
+          bind:value={date}
         />
       </FormGroup>
     </Form>

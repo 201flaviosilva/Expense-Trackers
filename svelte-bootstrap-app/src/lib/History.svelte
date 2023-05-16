@@ -28,7 +28,7 @@
   </thead>
 
   <tbody>
-    {#each filterByName as transaction}
+    {#each filterByName as transaction (transaction.id)}
       <Transaction {transaction} {removeTransaction} />
     {/each}
   </tbody>
