@@ -1,8 +1,13 @@
 # React Expense Tracker App
 
+## Main Stack
+
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+- ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+
 ## Description
 
-This is the React implementation of the Expense Tracker
+This is the React with CSS/SCSS modules implementation of the Expense Tracker
 ## MVP
 
 - [x] Add an individual transaction (name, amount, date)

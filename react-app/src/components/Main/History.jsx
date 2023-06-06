@@ -4,8 +4,11 @@ import { GoAlert } from "react-icons/go";
 import ConfirmationDialog from "../ConfirmationDialog";
 import Transaction from "../Transaction";
 import styles from "./style.module.scss";
+import { useTransactionContext } from "../../hooks/useTransactionContext";
 
-export default function History({ searchTransaction, transactions, setTransactions }) {
+export default function History() {
+	const { searchTransaction, transactions, setTransactions } = useTransactionContext();
+
 	const [filteredTransactions, setFilteredTransactions] = useState([]);
 	const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
