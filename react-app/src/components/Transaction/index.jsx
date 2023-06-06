@@ -1,12 +1,15 @@
 import moment from "moment";
 import { useCallback, useEffect, useState } from "react";
 import { GoAlert, GoCheck, GoPencil, GoTrashcan } from "react-icons/go";
+import { actionTypes } from "../../context/TransactionsReduce";
+import { useTransactionContext } from "../../hooks/useTransactionContext";
 import styles from "./style.module.scss";
 
 const ICON_SIZE = 16;
 const DATE_FORMAT = "DD-MM-yyyy";
 
-export default function Transaction({ id, title, amount, date, editTransaction, removeTransaction }) {
+export default function Transaction({ id, title, amount, date }) {
+	const { dispatch } = useTransactionContext();
 	const [isHouver, setIsHouver] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 	const [updatedTrans, setUpdatedTrans] = useState({ title, amount, date: moment(date).format("yyyy-MM-DD") });
@@ -16,13 +19,13 @@ export default function Transaction({ id, title, amount, date, editTransaction, 
 	const onEditTackClick = useCallback(() => {
 		if (!isEditing) return setIsEditing(true);
 
-		editTransaction({ id, ...updatedTrans });
+		dispatch({ type: actionTypes.EDIT, id, ...updatedTrans });
 		setIsEditing(false);
-	}, [editTransaction, id, isEditing, updatedTrans]);
+	}, [dispatch, id, isEditing, updatedTrans]);
 
 	useEffect(() => {
 		setUpdatedTrans({ title, amount, date: moment(date).format("yyyy-MM-DD") });
-	}, [title, amount, date,]);
+	}, [title, amount, date]);
 
 	return (
 		<li
@@ -53,7 +56,7 @@ export default function Transaction({ id, title, amount, date, editTransaction, 
 				{!isEditing && <>
 					<button
 						className={styles.danger}
-						onClick={() => removeTransaction(id)}
+						onClick={() => dispatch({ type: actionTypes.REMOVE, id })}
 						onMouseEnter={() => setIsHouver(true)}
 						onMouseLeave={() => setIsHouver(false)}
 						title="Delete transaction"

@@ -2,10 +2,10 @@ import { useTransactionContext } from "../../hooks/useTransactionContext";
 import styles from "./style.module.scss";
 
 export default function Balance() {
-	const { transactions } = useTransactionContext();
+	const { state } = useTransactionContext();
 
-	const income = transactions.reduce((acc, cur) => cur.amount > 0 ? acc + Number(cur.amount) : acc, 0);
-	const expense = transactions.reduce((acc, cur) => cur.amount < 0 ? acc + Number(cur.amount) : acc, 0);
+	const income = state.reduce((acc, cur) => cur.amount > 0 ? acc + Number(cur.amount) : acc, 0);
+	const expense = state.reduce((acc, cur) => cur.amount < 0 ? acc + Number(cur.amount) : acc, 0);
 
 	return (
 		<div className={styles.balance}>

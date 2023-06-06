@@ -1,30 +1,29 @@
-import moment from "moment";
 import { useState } from "react";
+import { actionTypes } from "../../context/TransactionsReduce";
+import { useTransactionContext } from "../../hooks/useTransactionContext";
+import { getTodayFormatted } from "../../utils";
 import Input from "../Input";
 import styles from "./style.module.scss";
 
-export default function CreateTransaction({ onCreateNewTransaction }) {
-	const TODAY = moment(new Date()).format("YYYY-MM-DD");
-
+export default function CreateTransaction() {
+	const { dispatch } = useTransactionContext();
 	const [newTransactionTitle, setNewTransactionTitle] = useState("");
 	const [newTransactionAmount, setNewTransactionAmount] = useState(0);
-	const [newTransactionDate, setNewTransactionDate] = useState(TODAY);
+	const [newTransactionDate, setNewTransactionDate] = useState(getTodayFormatted());
 
 	function onSubmit(e) {
 		e.preventDefault();
 
-		const newTransaction = {
-			id: Math.random(),
-			title: newTransactionTitle || "empty",
-			amount: newTransactionAmount || 0,
-			date: newTransactionDate || TODAY,
-		};
-
-		onCreateNewTransaction(newTransaction);
+		dispatch({
+			type: actionTypes.ADD,
+			title: newTransactionTitle,
+			amount: newTransactionAmount,
+			date: newTransactionDate,
+		});
 
 		setNewTransactionTitle("");
 		setNewTransactionAmount(0);
-		setNewTransactionDate(TODAY);
+		setNewTransactionDate(getTodayFormatted());
 	}
 
 	return (

@@ -5,17 +5,13 @@ import History from "./History";
 import styles from "./style.module.scss";
 
 export default function Main() {
-	const { transactions, setTransactions } = useTransactionContext();
-
-	function onCreateNewTransaction(newTransaction) {
-		setTransactions(prev => [...prev, newTransaction]);
-	}
+	const { state } = useTransactionContext();
 
 	return (
 		<main className={styles.main}>
 			<Balance />
-			<CreateTransaction onCreateNewTransaction={onCreateNewTransaction} />
-			{transactions.length > 0 && <History />}
+			<CreateTransaction />
+			{state.length > 0 && <History />}
 		</main>
 	)
 }

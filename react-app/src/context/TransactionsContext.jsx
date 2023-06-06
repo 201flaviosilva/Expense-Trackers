@@ -3,27 +3,26 @@
  * @type {object}
  * @property {number} id - The transaction identifier.
  * @property {string} title - The transaction title.
- * @property {boolean} amount - 
- * @property {Date} date - 
+ * @property {number} amount - The amount expend/earn.
+ * @property {Date} date - Date of the transaction.
  */
 
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
+import { LOCAL_NAME_SPACE, initialStateTransactions, reducer } from "./TransactionsReduce";
 
-export const LOCAL_NAME_SPACE = "React-App-Expense-Tracker";
 export const TransactionsContext = createContext();
 
 export function TransactionsContextProvider({ children }) {
-	const localTransactions = JSON.parse(localStorage.getItem(LOCAL_NAME_SPACE)) || []; // Load from the local storage
-	const [transactions, setTransactions] = useState(localTransactions);
+	const [state, dispatch] = useReducer(reducer, initialStateTransactions);
 	const [searchTransaction, setSearchTransaction] = useState("");
 
 	// Update local storage
 	useEffect(() => {
-		localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(transactions));
-	}, [transactions]);
+		localStorage.setItem(LOCAL_NAME_SPACE, JSON.stringify(state));
+	}, [state]);
 
 	return (
-		<TransactionsContext.Provider value={{ transactions, setTransactions, searchTransaction, setSearchTransaction }}>
+		<TransactionsContext.Provider value={{ state, dispatch, searchTransaction, setSearchTransaction }}>
 			{children}
 		</TransactionsContext.Provider>
 	);
