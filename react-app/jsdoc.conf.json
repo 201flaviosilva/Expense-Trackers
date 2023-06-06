@@ -1,0 +1,35 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "destination": "docs/",
+    "encoding": "utf8",
+    "verbose": true,
+    "recurse": true,
+    "readme": "README.md",
+    "template": "node_modules/clean-jsdoc-theme",
+    "theme_opts": {
+      "theme": "dark",
+      "title": "React Expense Tracker App",
+      "menu": [
+        {
+          "title": "GitHub",
+          "link": "https://github.com/201flaviosilva-labs/Expense-Trackers",
+          "target": "_blank"
+        }
+      ]
+    }
+  }
+}
