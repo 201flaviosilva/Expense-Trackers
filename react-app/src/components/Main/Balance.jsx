@@ -1,8 +1,11 @@
+import { useTransactionContext } from "../../hooks/useTransactionContext";
 import styles from "./style.module.scss";
 
-export default function Balance({ transactions }) {
-	const income = transactions.reduce((acc, cur) => cur.amount > 0 ? acc + Number(cur.amount) : acc, 0);
-	const expense = transactions.reduce((acc, cur) => cur.amount < 0 ? acc + Number(cur.amount) : acc, 0);
+export default function Balance() {
+	const { state } = useTransactionContext();
+
+	const income = state.reduce((acc, cur) => cur.amount > 0 ? acc + Number(cur.amount) : acc, 0);
+	const expense = state.reduce((acc, cur) => cur.amount < 0 ? acc + Number(cur.amount) : acc, 0);
 
 	return (
 		<div className={styles.balance}>
@@ -14,7 +17,7 @@ export default function Balance({ transactions }) {
 				<Column label="Expense" value={expense} />
 			</div>
 		</div>
-	)
+	);
 }
 
 function Column({ label, value }) {
@@ -25,6 +28,5 @@ function Column({ label, value }) {
 			<p className={`${styles.title} ${balanceColor}`}>{label}</p>
 			<p className={balanceColor}>{value}€</p>
 		</div>
-	)
-
+	);
 }

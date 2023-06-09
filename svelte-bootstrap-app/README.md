@@ -1,5 +1,10 @@
 # Svelte Bootstrap Expense Tracker App
 
+## Main Stack
+
+- ![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+
 ## Description
 
 This is the Svelte and Bootstrap implementation of the Expense Tracker
