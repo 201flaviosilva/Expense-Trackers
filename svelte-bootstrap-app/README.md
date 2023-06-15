@@ -29,7 +29,7 @@ This is the Svelte and Bootstrap implementation of the Expense Tracker
 Clone the project and move it into the `svelte-app` folder:
 
 ```sh
-git clone https://github.com/201flaviosilva-labs/Expense-Trackers.git
+git clone https://github.com/201flaviosilva/Expense-Trackers.git
 cd Expense-Trackers/svelte-app
 ```
 

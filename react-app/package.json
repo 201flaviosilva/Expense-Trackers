@@ -34,22 +34,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/201flaviosilva-labs/Expense-Trackers.git"
+    "url": "git+https://github.com/201flaviosilva/Expense-Trackers.git"
   },
   "bugs": {
-    "url": "https://github.com/201flaviosilva-labs/Expense-Trackers/issues"
+    "url": "https://github.com/201flaviosilva/Expense-Trackers/issues"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
+    "extends": ["react-app"]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

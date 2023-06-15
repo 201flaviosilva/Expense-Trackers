@@ -5,7 +5,7 @@
 
 <footer class="fixed-bottom left-10">
   <a
-    href="https://github.com/201flaviosilva-labs/Expense-Trackers"
+    href="https://github.com/201flaviosilva/Expense-Trackers"
     target="_blank"
     rel="noreferrer"
     class="ml-8 mb-8"
